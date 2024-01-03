@@ -1,3 +1,6 @@
+THIS YIELDED THE CORRECT ANSWER, BUT I NEGLECTED THE "IMPLICIT RANGES"
++ I SHOULD HAVE ABSTRACTED MORE
+
 <?php
 
 foreach (file('humidity-to-location.txt') as $map) {
