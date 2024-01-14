@@ -86,6 +86,11 @@ function aRange($range,$lowerBound,$upperBound) {
 	return [$range[0]+$lowerBound-$range[1],$upperBound-$lowerBound+1];
 }
 
+
+
+// ------------------------------------------------------------------------ SEED BY SEED
+
+
 function seedLocation($seed) {
 	return humidityLocation(seedHumidity($seed));
 }
