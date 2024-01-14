@@ -1,9 +1,9 @@
 <?php
 
-$start = microtime(true);
-
 for ($K=0;$K<5;$K++) {
 	$arrangements = 0;
+	
+	$start = microtime(true);
 	
 	foreach (file("12input.txt") as $lineNumber => $line) {
 		echo "\nProcessing line ".$lineNumber."...\n";
