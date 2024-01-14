@@ -2,7 +2,7 @@
 
 $sum = 0;
 
-foreach (file("9input.txt") as $lineKey => $line) {
+foreach (file("9input.txt") as $line) {
 	$levels[0] = $line;
 	$line = explode(" ",$line);
 	$l = 1;
