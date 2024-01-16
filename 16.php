@@ -9,8 +9,8 @@ foreach (file("16.txt") as $row => $line) {
 }
 
 define("Grid",$grid);
-define("Width",count(Grid[0]));
-define("Height",count(Grid));
+define("Height",count(Grid[0]));
+define("Width",count(Grid));
 
 $maxEnergized = 0;
 
