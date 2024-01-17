@@ -1,25 +1,26 @@
 <?php
 
-define("Start",microtime(TRUE));
+define('Start',microtime(TRUE));
 
-foreach (file("17.txt") as $row => $line) {
-	$line = str_split(preg_replace("/\n|\s/","",$line));
+foreach (file('17.txt') as $row => $line) {
+	$line = str_split(preg_replace("/\n|\s/",'',$line));
 	foreach ($line as $col => $element)
 		$grid[$col][$row] = $element;
 }
 
-define("HeatLossMap",$grid);
-define("Height",count(HeatLossMap[0]));
-define("Width",count(HeatLossMap));
+define('HeatLossMap',$grid);
+define('Height',count(HeatLossMap[0]));
+define('Width',count(HeatLossMap));
 
-define("Manhattan",manhattan([0,0]) * 9);
+define('Manhattan',manhattan([0,0]) * 9);
+$leastHeatLoss = Manhattan;
 
 move([4,0],[1,0],1,3,HeatLossMap[1][0]);
 move([4,0],[1,0],3,3,HeatLossMap[1][0]);
 move([0,4],[0,1],1,3,HeatLossMap[0][1]);
 move([0,4],[0,1],3,3,HeatLossMap[0][1]);
 
-echo round(microtime(true)-Start,3). " seconds elapsed";
+echo round(microtime(true)-Start,3). ' seconds elapsed';
 
 function move($cell,$dir,$option,$count,$heatLoss) {
 	global $leastHeatLoss,$m;
@@ -32,15 +33,16 @@ function move($cell,$dir,$option,$count,$heatLoss) {
 			$pCell = add($cell,$backDir);
 			$heatLoss += HeatLossMap[$pCell[0]][$pCell[1]];
 		}
-
-	if (isset($leastHeatLoss))
-		if ($heatLoss + manhattan($cell) >= $leastHeatLoss)
-			return;
-
-	if ($heatLoss + manhattan($cell) * 9 >= Manhattan)
+	
+	$manhattan = manhattan($cell);
+	
+	if ($heatLoss + $manhattan >= $leastHeatLoss)
 		return;
-		
-	if ($cell == [Width-1,Height-1] & $count > 2) {
+	
+	if ($heatLoss + $manhattan * 9 >= Manhattan)
+		return;
+	
+	if ($cell == [Width-1,Height-1] & $count) {
 		$leastHeatLoss = $heatLoss;
 
 		echo $leastHeatLoss."\n";
@@ -77,7 +79,7 @@ function move($cell,$dir,$option,$count,$heatLoss) {
 	if (!isset(HeatLossMap[$cell[0]][$cell[1]]))
 		return;
 
-	if ($count < 2) {
+	if ($count == 0) {
 		$option = 0;
 		move($cell,$newDir,4,$count,$heatLoss);
 	}
