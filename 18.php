@@ -95,6 +95,6 @@ foreach ($map as $x => $col) {
 }
 
 echo $frameArea - $marginArea."\n";
-echo round(microtime(TRUE)-Start,3). ' seconds elapsed';
+echo round(microtime(TRUE)-Start,3).' seconds elapsed';
 
 ?>
