@@ -5,7 +5,7 @@ define('AandR',
 
 function A($x,$m,$a,$s) {return $x + $m + $a + $s;}
 
-function R($x,$m,$a,$s) {return 0;}
+function R() {return 0;}
 
 '
 );
