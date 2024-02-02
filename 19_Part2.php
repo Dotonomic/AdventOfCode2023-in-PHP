@@ -80,15 +80,15 @@ foreach (Workflows as $workflow) {
 	
 	$workflow = str_replace(',', '($xmas); $xmas[$l] = subtract($xmas[$l],$aux); ', $workflow);
 	
-	$workflow = preg_replace('/x</', '$l = 0; $aux = $xmas[0]; $xmas[0] = intersect($aux, 0, ', $workflow);
-	$workflow = preg_replace('/m</', '$l = 1; $aux = $xmas[1]; $xmas[1] = intersect($aux, 0, ', $workflow);
-	$workflow = preg_replace('/a</', '$l = 2; $aux = $xmas[2]; $xmas[2] = intersect($aux, 0, ', $workflow);
-	$workflow = preg_replace('/s</', '$l = 3; $aux = $xmas[3]; $xmas[3] = intersect($aux, 0, ', $workflow);
+	$workflow = str_replace('x<', '$l = 0; $aux = $xmas[0]; $xmas[0] = intersect($aux, 0, ', $workflow);
+	$workflow = str_replace('m<', '$l = 1; $aux = $xmas[1]; $xmas[1] = intersect($aux, 0, ', $workflow);
+	$workflow = str_replace('a<', '$l = 2; $aux = $xmas[2]; $xmas[2] = intersect($aux, 0, ', $workflow);
+	$workflow = str_replace('s<', '$l = 3; $aux = $xmas[3]; $xmas[3] = intersect($aux, 0, ', $workflow);
 	
-	$workflow = preg_replace('/x>/', '$l = 0; $aux = $xmas[0]; $xmas[0] = intersect($aux, 1, ', $workflow);
-	$workflow = preg_replace('/m>/', '$l = 1; $aux = $xmas[1]; $xmas[1] = intersect($aux, 1, ', $workflow);
-	$workflow = preg_replace('/a>/', '$l = 2; $aux = $xmas[2]; $xmas[2] = intersect($aux, 1, ', $workflow);
-	$workflow = preg_replace('/s>/', '$l = 3; $aux = $xmas[3]; $xmas[3] = intersect($aux, 1, ', $workflow);
+	$workflow = str_replace('x>', '$l = 0; $aux = $xmas[0]; $xmas[0] = intersect($aux, 1, ', $workflow);
+	$workflow = str_replace('m>', '$l = 1; $aux = $xmas[1]; $xmas[1] = intersect($aux, 1, ', $workflow);
+	$workflow = str_replace('a>', '$l = 2; $aux = $xmas[2]; $xmas[2] = intersect($aux, 1, ', $workflow);
+	$workflow = str_replace('s>', '$l = 3; $aux = $xmas[3]; $xmas[3] = intersect($aux, 1, ', $workflow);
 	
 	$workflow = str_replace('{', '($christmas) {$xmas = $christmas; $c = 0; ', $workflow);
 	
