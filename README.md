@@ -1,5 +1,5 @@
 # AoC2023 in PHP
-Solving [Advent Of Code 2023](https://adventofcode.com) with PHP (and a grain of MySQL)
+Solving<a href="https://adventofcode.com" target="_blank">Advent Of Code 2023 </a>with PHP (and a grain of MySQL)
 
 <img width="256" src="https://github.com/Dotonomic/AdventOfCode2023-in-PHP/assets/42643769/981f6dcf-3e5a-47a2-bba2-9565de4e6bdb">
 
