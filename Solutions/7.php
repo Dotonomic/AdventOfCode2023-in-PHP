@@ -14,20 +14,20 @@ function type($hand) {
 }
 
 function fiveOfAKind($hand) {
-	for ($i=0;$i<6;$i++) {
-		if ($i == 5) return TRUE;
-		if (substr($hand,$i,1) != "J") {
+	for ($i=0;$i<5;$i++)
+		if (substr($hand,$i,1) != 'J') {
 			$kind = substr($hand,$i,1);
 			break;
 		}
+
+	if (isset($kind)) {
+		$hand = str_replace('J',$kind,$hand);
+		
+		for ($i=0;$i<5;$i++)
+			if (substr($hand,$i,1) != $kind)
+				return FALSE;
 	}
 	
-	$hand = preg_replace("/J/",$kind,$hand);
-
-	for ($i=1;$i<5;$i++)
-		if (substr($hand,$i,1) != $kind)
-			return FALSE;
-
 	return TRUE;
 }
 
@@ -36,7 +36,7 @@ function fourOfAKind($hand) {
 	for ($i=0;$i<5;$i++) {
 		$card = substr($hand,$i,1);
 		
-		$wildHand = preg_replace("/J/",$card,$hand);
+		$wildHand = str_replace('J',$card,$hand);
 		
 		if (preg_match_all("/".$card."/",$wildHand) == 4)
 			return TRUE;
@@ -53,13 +53,13 @@ function fullHouse($hand) {
 			for ($j=0;$j<5;$j++) {
 				$card = substr($hand,$j,1);
 				
-				$wildHand = preg_replace("/J/",$card,$hand);
+				$wildHand = str_replace('J',$card,$hand);
 				
 				if (preg_match_all("/".$card."/",$wildHand) == 2)
 					return TRUE;
 			}
 		else {
-			$wildHand = preg_replace("/J/",$card,$hand);
+			$wildHand = str_replace('J',$card,$hand);
 			if (preg_match_all("/".$card."/",$wildHand) == 3)
 				for ($j=0;$j<5;$j++) {
 					$card = substr($wildHand,$j,1);
@@ -77,7 +77,7 @@ function threeOfAKind($hand) {
 	for ($i=0;$i<5;$i++) {
 		$card = substr($hand,$i,1);
 		
-		$wildHand = preg_replace("/J/",$card,$hand);
+		$wildHand = str_replace('J',$card,$hand);
 		
 		if (preg_match_all("/".$card."/",$wildHand) == 3)
 			return TRUE;
@@ -94,13 +94,13 @@ function twoPair($hand) {
 			for ($j=0;$j<5;$j++) {
 				$card2 = substr($hand,$j,1);
 				
-				$wildHand = preg_replace("/J/",$card2,$hand);
+				$wildHand = str_replace('J',$card2,$hand);
 				
 				if ($card2 != $card & preg_match_all("/".$card2."/",$wildHand) == 2)
 					return TRUE;
 			}
 		else {
-			$wildHand = preg_replace("/J/",$card,$hand);
+			$wildHand = str_replace('J',$card,$hand);
 			if (preg_match_all("/".$card."/",$wildHand) == 2)
 				for ($j=0;$j<5;$j++) {
 					$card2 = substr($wildHand,$j,1);
@@ -118,7 +118,7 @@ function onePair($hand) {
 	for ($i=0;$i<5;$i++) {
 		$card = substr($hand,$i,1);
 		
-		$wildHand = preg_replace("/J/",$card,$hand);
+		$wildHand = str_replace('J',$card,$hand);
 		
 		if (preg_match_all("/".$card."/",$wildHand) == 2)
 			return TRUE;
