@@ -2,7 +2,7 @@
 
 function type($hand) {
 	
-	switch ($hand) {
+	switch (TRUE) {
 		case fiveOfAKind($hand) : return 6;
 		case fourOfAKind($hand) : return 5;
 		case fullHouse($hand) : return 4;
